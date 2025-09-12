@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import { bannerData } from "../assets/util";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "./Ui/Button";
 
 
 
@@ -75,7 +76,9 @@ const BannerSlider = () => {
                                 <p className=" text-xs md:text-base uppercase font-medium">{item.discount}</p>
                                 <p className=" font-medium text-sm md:text-base">From <span className=" text-blue-700 md:ml-2 font-bold md:text-xl
                                 ">${item.from}</span></p>
-                                <button onClick={()=>navigate('/shop')} className=" py-2 px-9 bg-black/80 text-white inline rounded-md text-xs md:text-sm uppercase hover:bg-black hoverEfect cursor-pointer font-semibold">Shop Now</button>
+                                <span onClick={()=>navigate('/shop')}>
+                                    <Button type="primary" />
+                                </span>
                             </div>
                         </div>
                     </div>

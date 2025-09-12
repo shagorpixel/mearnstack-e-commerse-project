@@ -3,6 +3,7 @@ import { logo } from "../assets/images";
 import SearchInput from "./SearchInput";
 import { FaBars,FaShoppingCart,FaUser  } from "react-icons/fa";
 import LinkItem from "./Ui/LinkItem";
+import Logo from "./Ui/Logo";
 
 const navItems = [
     {
@@ -31,7 +32,7 @@ const Header = () => {
   return (
     <header className=" py-7  md:px-4 border-b-[1px] border-stone-300 sticky top-0 left-0 z-50 bg-white">
       <div className="customContainer flex items-center gap-x-3 md:gap-x-7 justify-between">
-        <img className=" w-20" src={logo} alt="All Time Bazar"  />
+        <Logo />
         <div className=" flex-1">
           <SearchInput></SearchInput>
         </div>
