@@ -1,10 +1,10 @@
-import React from 'react';
+import BannerSlider from "./Components/BannerSlider";
 
 const App = () => {
   return (
-    <div>
-      <h2 className=' text-lg font-medium text-center'>Hello world</h2>
-    </div>
+    <main>
+        <BannerSlider />
+    </main>
   );
 };
 

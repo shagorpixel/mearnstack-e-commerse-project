@@ -1,1 +1,13 @@
 @import "tailwindcss";
+@theme{
+    --color-primary:#262626;
+    --color-lightTExt:#6d6d6d;
+    --color-destructive:#b91c1c
+    --shadow-testShaddow: 0px 0px 55px -13px rgba(0,0,0,0.7); 
+}
+.customContainer{
+    @apply max-w-7xl w-full mx-auto px-2
+}
+.hoverEfect{
+    @apply duration-300 ease-in-out
+}
