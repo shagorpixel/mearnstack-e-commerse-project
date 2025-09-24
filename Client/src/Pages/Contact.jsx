@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <div>
+        <div className=' min-h-screen'>
             <h2>Contact Page</h2>
         </div>
     );

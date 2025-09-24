@@ -2,7 +2,7 @@ import React from 'react';
 
 const Profile = () => {
     return (
-        <div>
+        <div className=' min-h-screen'>
             <h2>Wellcome To Profile Page</h2>
         </div>
     );

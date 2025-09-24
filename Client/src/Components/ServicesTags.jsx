@@ -8,7 +8,7 @@ const ServicesTags = () => {
             <div className="customContainer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 place-items-center md:place-items-start">
             {
                 services.map((service)=>(
-                    <div className=" flex items-center gap-3 min-w-[300px] md:min-w-[0]">
+                    <div key={service.title} className=" flex items-center gap-3 min-w-[300px] md:min-w-[0]">
                         <span className=" text-7xl text-blue-600">{service.icon}</span>
                         <div>
                             <h2 className=" text-base uppercase font-bold">{service.title}</h2>
