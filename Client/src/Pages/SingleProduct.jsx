@@ -6,7 +6,7 @@ import ReletedProduct from "../Components/Ui/ReletedProduct";
 
 const SingleProduct = () => {
   const { productId } = useParams();
-  const { products, currency } = useContext(MainContext);
+  const { products, currency,addToCart} = useContext(MainContext);
   const [product, setProduct] = useState(null);
   const [image, setImage] = useState("");
   const [size,setSize] = useState("")
@@ -68,7 +68,7 @@ const SingleProduct = () => {
                     }
                 </div>
           </div>
-           <button className=" bg-black text-white px-8 py-3 rounded cursor-pointer active:bg-gray-700">
+           <button onClick={()=>addToCart(product.id,size)} className=" bg-black text-white px-8 py-3 rounded cursor-pointer active:bg-gray-700">
             ADD TO CART
           </button>
           <hr className=" mt-8 sm:w-4/5 border border-gray-100" />

@@ -12,6 +12,7 @@ import Cart from './Pages/Cart.jsx';
 import Profile from './Pages/Profile.jsx'
 import SingleProduct from './Pages/SingleProduct.jsx'
 import SignIn from './Pages/SignIn.jsx'
+import PlaceOrder from './Pages/PlaceOrder.jsx'
 const router = createBrowserRouter([
   {
     path:'/',
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path:'/product/:productId',
         element:<SingleProduct />
+      },
+      {
+        path:'/place-order',
+        element:<PlaceOrder />
       },
     ]
   }

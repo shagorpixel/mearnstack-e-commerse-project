@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import SearchInput from "./SearchInput";
 import { FaBars, FaShoppingCart, FaUser } from "react-icons/fa";
 import LinkItem from "./Ui/LinkItem";
 import Logo from "./Ui/Logo";
 import SocialMedia from "./Ui/SocialMedia";
+import { MainContext } from "../Context/MainContext";
+import { Link } from "react-router-dom";
 
 const navItems = [
   {
@@ -26,6 +28,8 @@ const navItems = [
 ];
 
 const Header = () => {
+  const {getCartCount} = useContext(MainContext);
+ 
   const[menuIsOpen,setMenuIsOpen] = useState(false);
   return (
     <header className=" py-7  md:px-4 border-b-[1px] border-stone-300 sticky top-0 left-0 z-50 bg-white">
@@ -40,12 +44,12 @@ const Header = () => {
               <LinkItem key={index} url={item.url} title={item.title} />
             ))}
           </div>
-          <button className="text-xl hover:text-primary cursor-pointer hoverEfect relative group">
+          <Link to={'/cart'} className="text-xl hover:text-primary cursor-pointer hoverEfect relative group">
             <FaShoppingCart />
             <span className=" size-4 flex items-center justify-center rounded-full bg-lightTExt text-white text-xs absolute -right-3 -top-3 group-hover:bg-primary hoverEfect">
-              0
+              {getCartCount()}
             </span>
-          </button>
+          </Link>
           <button className="text-xl hover:text-primary cursor-pointer hoverEfect">
             <FaUser />
           </button>
