@@ -8,6 +8,8 @@ const MainContextProvider = ({children})=>{
     const [filterProducts,setFilterProducts] = useState([]);
     const [category,setCategory] = useState("All");
     const [search,setSeacrh] = useState("");
+    const currency = "$"
+    
     const finterItems = ()=>{
          const filterCategory = category === "All" ? products : products.filter(product => product.category === category);
   const filterSearch = !search 
@@ -36,7 +38,8 @@ setProducts(damyProducts)
     search,
     setSeacrh,
     finterItems,
-    clearFilters
+    clearFilters,
+    currency
     }
     return <MainContext.Provider value={value} >
         {children}

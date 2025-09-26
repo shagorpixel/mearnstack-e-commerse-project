@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import { Link } from 'react-router-dom';
+import Rating from './Rating';
 
 const ProductCart = ({product}) => {
     return (
@@ -8,7 +9,7 @@ const ProductCart = ({product}) => {
                 className="bg-white shadow rounded-lg overflow-hidden hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer"
               >
                 <img
-                  src={product.image}
+                  src={product.images[0]}
                   alt={product.name}
                   className="w-full h-48 object-cover"
                 />
@@ -18,18 +19,7 @@ const ProductCart = ({product}) => {
                   </h3>
                   <p className=' text-xs text-gray'>{product.description.substring(0,65)}...</p>
                   <p className="text-gray-600 mb-2 font-medium">${product.price}</p>
-                  <div className="flex">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <span
-                        key={i}
-                        className={`text-yellow-400 ${
-                          i < product.rating ? "" : "text-gray-300"
-                        }`}
-                      >
-                        ★
-                      </span>
-                    ))}
-                  </div>
+                  <Rating rating={product.rating} />
                   
                 </div>
               </Link>

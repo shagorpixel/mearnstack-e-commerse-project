@@ -11,3 +11,6 @@
 .hoverEfect{
     @apply duration-300 ease-in-out
 }
+::-webkit-scrollbar{
+    display: none;
+}
