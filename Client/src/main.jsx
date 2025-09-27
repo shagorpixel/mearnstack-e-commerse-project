@@ -11,8 +11,9 @@ import Orders from './Pages/Orders.jsx';
 import Cart from './Pages/Cart.jsx';
 import Profile from './Pages/Profile.jsx'
 import SingleProduct from './Pages/SingleProduct.jsx'
-import SignIn from './Pages/SignIn.jsx'
+import SignIn from './Pages/Login.jsx'
 import PlaceOrder from './Pages/PlaceOrder.jsx'
+import Login from './Pages/Login.jsx'
 const router = createBrowserRouter([
   {
     path:'/',
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/signin',
-        element:<SignIn />
+        element:<Login />
       },
       {
         path:'/product/:productId',

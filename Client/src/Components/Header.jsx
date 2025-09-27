@@ -50,8 +50,12 @@ const Header = () => {
               {getCartCount()}
             </span>
           </Link>
-          <button className="text-xl hover:text-primary cursor-pointer hoverEfect">
+          <button className="text-xl hover:text-primary cursor-pointer hoverEfect group relative ">
             <FaUser />
+            <div className=" hidden group-hover:flex flex-col gap-2 absolute top-[105%] right-0 p-4 min-w-[200px] bg-white shadow-md divide-y divide-gray-100 rounded">
+              <Link className=" hover:bg-gray-200 " to='/orders'>Orders</Link>
+              <Link className=" hover:bg-gray-200" to='/orders'>Logout</Link>
+            </div>
           </button>
         </div>
         <button onClick={()=>setMenuIsOpen(true)} className=" text-2xl text-lightTExt hover:text-primary md:hidden cursor-pointer hoverEfect">
