@@ -4,15 +4,18 @@ import 'dotenv/config';
 import connectDb from './Config/mongodb.js';
 import connectCloudinary from './Config/cloudinary.js';
 import userRouter from './routes/userRoute.js';
+import productRoute from './routes/productRoute.js';
 // App Config 
 const app = express();
-const port = process.env.port || 4000;
+const port = process.env.PORT || 4000;
 connectDb();
 connectCloudinary();
 // middleWare
 app.use(express.json());
+app.use(express.urlencoded({extended:true}))
 app.use(cors());
 app.use('/api/user',userRouter);
+app.use('/api/product',productRoute);
 
 // api endPoints 
 app.get('/',(req,res)=>{

@@ -6,9 +6,9 @@ const productSchema = new mongoose.Schema({
     images:{type:Array,required:true},
     category:{type:String,required:true},
     subCategory:{type:String,required:true},
+    bestSeller:{type:Boolean,default:false},
     sizes:Array,
-    subCategory:{type:String,required:true},
-    bestSeller:Boolean,
     date:{type:Number,required:true}
 });
 const productModel = mongoose.models.product || mongoose.model("product",productSchema);
+export default productModel;
