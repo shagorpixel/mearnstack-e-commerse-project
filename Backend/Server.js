@@ -3,6 +3,7 @@ import cors from 'cors';
 import 'dotenv/config';
 import connectDb from './Config/mongodb.js';
 import connectCloudinary from './Config/cloudinary.js';
+import userRouter from './routes/userRoute.js';
 // App Config 
 const app = express();
 const port = process.env.port || 4000;
@@ -11,6 +12,7 @@ connectCloudinary();
 // middleWare
 app.use(express.json());
 app.use(cors());
+app.use('/api/user',userRouter);
 
 // api endPoints 
 app.get('/',(req,res)=>{
