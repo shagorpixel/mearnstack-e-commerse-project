@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { MainContext } from "../../Context/MainContext";
 import LeftSlideber from "./LeftSlideber";
 import { IoMdClose } from "react-icons/io";
-import { damyProducts } from "../../assets/util";
 import ProductCart from "../../Components/Ui/ProductCart";
 
 const Shop = () => {
@@ -80,7 +79,7 @@ const Shop = () => {
         <main className="flex-1 p-5 md:ml-[25%]">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             {filterProducts.map((product) => (
-              <ProductCart key={product.id} product={product} />
+              <ProductCart key={product._id} product={product} />
             ))}
           </div>
 

@@ -13,7 +13,7 @@ const Cart = () => {
       for (const item in cartItems[items]) {
         if (cartItems[items][item] > 0) {
           tempData.push({
-            id: items,
+            _id: items,
             size: item,
             quantity: cartItems[items][item],
           });
@@ -28,7 +28,7 @@ const Cart = () => {
       <h2 className="text-2xl mb-3">Your Cart</h2>
       <div>
         {cartData.map((item, index) => {
-          const productData = products.find((product) => product.id == item.id);
+          const productData = products.find((product) => product._id == item._id);
 
           return (
             <div key={index} className=" py-4 border-t border-gray-100 border-b text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols[4fr_2fr_0.5fr] items-center gap-4">
@@ -53,9 +53,9 @@ const Cart = () => {
                   </div>
                 </div>
               </div>
-              <input onChange={(e)=>e.target.value==0 || e.target.value==''?null:updataeQuantity(item.id,item.size,Number(e.target.value))} type="number" min={1} defaultValue={item.quantity} className=" border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1 border-gray-100 rounded" />
+              <input onChange={(e)=>e.target.value==0 || e.target.value==''?null:updataeQuantity(item._id,item.size,Number(e.target.value))} type="number" min={1} defaultValue={item.quantity} className=" border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1 border-gray-100 rounded" />
               <button className=" text-2xl font-semibold ">
-                <MdDeleteOutline onClick={()=>updataeQuantity(item.id,item.size,0)} className="cursor-pointer" />
+                <MdDeleteOutline onClick={()=>updataeQuantity(item._id,item.size,0)} className="cursor-pointer" />
               </button>
             </div>
           );

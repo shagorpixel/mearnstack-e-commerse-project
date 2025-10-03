@@ -5,7 +5,7 @@ import Rating from './Rating';
 
 const ProductCart = ({product}) => {
     return (
-        <Link to={`/product/${product.id}`}
+        <Link to={`/product/${product._id}`}
                 className="bg-white shadow rounded-lg overflow-hidden hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer"
               >
                 <img

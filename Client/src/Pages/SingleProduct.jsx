@@ -12,7 +12,7 @@ const SingleProduct = () => {
   const [size,setSize] = useState("")
 
   const fetchProduct = async () => {
-    const foundProduct = await products.find((p) => p.id == productId);
+    const foundProduct = await products.find((p) => p._id == productId);
     if (foundProduct) {
       setProduct(foundProduct);
       setImage(foundProduct.images[0]);
@@ -68,7 +68,7 @@ const SingleProduct = () => {
                     }
                 </div>
           </div>
-           <button onClick={()=>addToCart(product.id,size)} className=" bg-black text-white px-8 py-3 rounded cursor-pointer active:bg-gray-700">
+           <button onClick={()=>addToCart(product._id,size)} className=" bg-black text-white px-8 py-3 rounded cursor-pointer active:bg-gray-700">
             ADD TO CART
           </button>
           <hr className=" mt-8 sm:w-4/5 border border-gray-100" />

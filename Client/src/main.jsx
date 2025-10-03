@@ -56,6 +56,10 @@ const router = createBrowserRouter([
         path:'/place-order',
         element:<PlaceOrder />
       },
+      {
+        path:'/login',
+        element:<Login />
+      }
     ]
   }
 ])

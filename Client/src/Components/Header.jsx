@@ -28,8 +28,14 @@ const navItems = [
 ];
 
 const Header = () => {
-  const {getCartCount} = useContext(MainContext);
- 
+  const {getCartCount,token,setToken,navigate,setCartItems} = useContext(MainContext);
+ const logOutHandle = ()=>{
+  localStorage.removeItem('token');
+  setToken("");
+  navigate('/login')
+  setCartItems({})
+  
+ }
   const[menuIsOpen,setMenuIsOpen] = useState(false);
   return (
     <header className=" py-7  md:px-4 border-b-[1px] border-stone-300 sticky top-0 left-0 z-50 bg-white">
@@ -50,13 +56,16 @@ const Header = () => {
               {getCartCount()}
             </span>
           </Link>
-          <button className="text-xl hover:text-primary cursor-pointer hoverEfect group relative ">
-            <FaUser />
+          {token ?
+          <div className="text-xl hover:text-primary cursor-pointer hoverEfect group relative ">
+  
+              <FaUser />
             <div className=" hidden group-hover:flex flex-col gap-2 absolute top-[105%] right-0 p-4 min-w-[200px] bg-white shadow-md divide-y divide-gray-100 rounded">
-              <Link className=" hover:bg-gray-200 " to='/orders'>Orders</Link>
-              <Link className=" hover:bg-gray-200" to='/orders'>Logout</Link>
+              <Link className=" hover:bg-gray-200 text-center" to='/orders'>Orders</Link>
+              <button onClick={logOutHandle} className=" hover:bg-gray-200">Logout</button>
             </div>
-          </button>
+          </div>
+          :<Link to='/login'>Sign In</Link>}
         </div>
         <button onClick={()=>setMenuIsOpen(true)} className=" text-2xl text-lightTExt hover:text-primary md:hidden cursor-pointer hoverEfect">
           <FaBars />
