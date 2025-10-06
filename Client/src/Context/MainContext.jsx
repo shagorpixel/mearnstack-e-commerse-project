@@ -17,8 +17,9 @@ const MainContextProvider = ({children})=>{
     const delivaryFee = 50;
     const [token,setToken] = useState('');
 
-    const addToCart = (itemId,size)=>{
+    const addToCart = async(itemId,size)=>{
       const cartData = structuredClone(cartItems);
+      
       if(!size){
         toast.error("Please Select Product Size");
         return;
@@ -34,6 +35,16 @@ const MainContextProvider = ({children})=>{
         cartData[itemId][size] = 1
       }
       setCartItems(cartData);
+     if(token){
+      try{
+         await axios.post(backendUrl+'/api/cart/add',{itemId,size},{headers:{token}})
+        
+      }catch(error){
+        console.log(error.message);
+        toast.error(error.message)
+      }
+     }
+     
     }
     const getCartCount =  ()=>{
       let totalCount = 0;
@@ -57,17 +68,36 @@ const MainContextProvider = ({children})=>{
             }
 
           }catch(err){
-            return err
+            console.log(err.message);
+            return 0;
           }
         }
       }
       return totalAmount;
     }
-    
-    const updataeQuantity = (itemId,size,quantity)=>{
+    const getUserCart = async(token)=>{
+      try{
+        const response = await axios.post(backendUrl+'/api/cart/get',{},{headers:{token}});
+        if(response.data.success){
+          setCartItems(response.data.cartData);
+        }
+      }catch(error){
+          console.log(error.message);
+          toast(error.message);
+        }
+    }
+    const updataeQuantity = async(itemId,size,quantity)=>{
       let cartData =  structuredClone(cartItems);
       cartData[itemId][size] = quantity;
       setCartItems(cartData);
+      if(token){
+        try{
+          await axios.post(backendUrl+'/api/cart/update',{itemId,size,quentity:quantity},{headers:{token}});
+        }catch(error){
+          toast.error(error.message);
+          console.log(error.message);
+        }
+      }
     }
     const fetchProduct = async()=>{
       try{
@@ -99,7 +129,8 @@ const MainContextProvider = ({children})=>{
     }
     useEffect(()=>{
       if(!token && localStorage.getItem('token')){
-        setToken(localStorage.getItem('token'))
+        setToken(localStorage.getItem('token'));
+        getUserCart(localStorage.getItem('token'))
       }
     },[])
     useEffect(()=>{
