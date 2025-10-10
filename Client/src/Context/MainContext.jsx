@@ -1,11 +1,12 @@
 import { createContext, useEffect, useState } from "react";
   import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
+import { useLocation, useNavigate } from "react-router-dom";
 export const MainContext = createContext();
 
 const MainContextProvider = ({children})=>{
-    
+  
   const navigate = useNavigate();
     const [products,setProducts] = useState([]);
     const [filterProducts,setFilterProducts] = useState([]);
@@ -152,6 +153,7 @@ fetchProduct();
     addToCart,
     getCartCount,
     cartItems,
+    setCartItems,
     updataeQuantity,
     delivaryFee,
     getTotalAmount,

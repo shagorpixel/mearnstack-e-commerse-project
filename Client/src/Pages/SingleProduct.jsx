@@ -23,7 +23,9 @@ const SingleProduct = () => {
     fetchProduct();
   }, [productId, products]);
 
-
+useEffect(() => {
+      window.scrollTo(0, 0)
+  }, []);
   return product ? (
     <div className="border-t-2 border-gray-50 pt-10 transition-opacity ease-in duration-500 opacity-100 customContainer min-h-screen">
       {/* product Data  */}

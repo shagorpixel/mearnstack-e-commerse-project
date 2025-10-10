@@ -15,6 +15,9 @@ const Shop = () => {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+     useEffect(() => {
+      window.scrollTo(0, 0)
+  }, []);
   // ✅ Fix: Reset sidebar state on resize
   useEffect(() => {
     const handleResize = () => {
@@ -46,7 +49,7 @@ const Shop = () => {
 
       <div className="flex flex-1">
         {/* Sidebar (Desktop - Fixed) */}
-        <aside className="hidden md:block w-1/4 bg-white shadow-md fixed top-22 left-0 h-[calc(100vh-4rem)] overflow-y-auto">
+        <aside className="hidden md:block w-1/5 bg-white shadow-md fixed top-22 left-0 h-[calc(100vh-4rem)] overflow-y-auto">
           <LeftSlideber />
         </aside>
 
@@ -76,7 +79,7 @@ const Shop = () => {
         )}
 
         {/* Products Section */}
-        <main className="flex-1 p-5 md:ml-[25%]">
+        <main className="flex-1 p-5 md:ml-[20%]">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             {filterProducts.map((product) => (
               <ProductCart key={product._id} product={product} />

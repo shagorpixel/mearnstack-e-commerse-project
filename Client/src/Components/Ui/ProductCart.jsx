@@ -1,5 +1,4 @@
-import React from 'react';
-import Button from './Button';
+
 import { Link } from 'react-router-dom';
 import Rating from './Rating';
 
@@ -11,7 +10,7 @@ const ProductCart = ({product}) => {
                 <img
                   src={product.images[0]}
                   alt={product.name}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-72  md:h-52 object-cover"
                 />
                 <div className="p-4">
                   <h3 className="text-sm font-semibold mb-2 text-gray-800">
