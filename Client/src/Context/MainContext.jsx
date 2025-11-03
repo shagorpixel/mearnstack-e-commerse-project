@@ -13,7 +13,7 @@ const MainContextProvider = ({children})=>{
     const [category,setCategory] = useState("All");
     const [search,setSeacrh] = useState("");
     const currency = "$";
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+    const backendUrl = "https://mearnstack-e-commerse-server.vercel.app";
     const [cartItems,setCartItems] = useState({});
     const delivaryFee = 50;
     const [token,setToken] = useState('');
