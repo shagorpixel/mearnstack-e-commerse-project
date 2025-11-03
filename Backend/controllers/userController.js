@@ -80,7 +80,7 @@ const registerUser = async (req, res) => {
 };
 
 const adminLogin = (req, res) => {
-  console.log(req.body)
+  console.log(process.env.ADMIN_EMAIL,process.env.ADMIN_PASSWORD)
     try{
       const {email,password} = req.body
       if(email == process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD == password){
