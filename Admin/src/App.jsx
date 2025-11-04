@@ -5,8 +5,8 @@ import Sideber from "./components/Sideber";
 import Login from "./components/Login";
 import { ToastContainer } from "react-toastify";
 import List from "./pages/List";
-export const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://mearnstack-e-commerse-server.vercel.app';
-export const currency = import.meta.env.VITE_CURRENCY || "$"
+export const backendUrl =  'https://mearnstack-e-commerse-server.vercel.app';
+export const currency ="$"
 
 import Add from './pages/Add';
 import Order from './pages/Order';
